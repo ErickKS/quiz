@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Erick Kuwahara">
+    <title>Quiz App</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section id="register">
+        <div class="container">
+            <div class="box__register">
+                <h2>Welcome</h2>
+                <p>Please enter your nickname to start the session</p>
+                <form method="post" id="register">
+                    <input type="text" id="registerInput" name="nickname" placeholder="Nickname*" autofocus
+                        autocomplete="off">
+                    <input type="submit" id="btnStart" value="Start">
+                </form>
+
+                <p>Developed by <a href="https://github.com/ErickKS">Erick Kuwahara</a></p>
+            </div>
+        </div>
+    </section>
+
+    <div id="preLoader">
+        <div class="arc"></div>
+    </div>
+
+    <section id="main">
+        <header>
+            <nav>
+                <div class="container">
+                    <div class="logo">
+                        <h3><span>
+                                << /span> Quiz /<span>></span></h3>
+                    </div>
+                    <div class="navigation">
+                        <button onclick="exit()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                        <button onclick="exit()">Sair</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="banner">
+                <div class="container">
+                    <h2>Hello <span id="nickname"></span><br>It's nice to see you here</h2>
+                    <h4>Choose the quiz you want to play</h4>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="box__quiz">
+                <div id="quizFruit" class="quiz__single">
+                    <div class="quiz__img">
+                        <img src="./images/banner-fruit.jpg" alt="fruit banner">
+                    </div>
+                    <div class="quiz__txt">
+                        <p>See which fruit you are</p>
+                    </div>
+                </div>
+                <div id="quizMath" class="quiz__single">
+                    <div class="quiz__img">
+                        <img src="./images/banner-math.jpg" alt="math banner">
+                    </div>
+                    <div class="quiz__txt">
+                        <p>Are you good at math?</p>
+                    </div>
+                </div>
+                <div id="quizSoccer" class="quiz__single">
+                    <div class="quiz__img">
+                        <img src="./images/banner-soccer.jpg" alt="soccer banner">
+                    </div>
+                    <div class="quiz__txt">
+                        <p>Do you know football?</p>
+                    </div>
+                </div>
+                <div id="quizGeneral" class="quiz__single">
+                    <div class="quiz__img">
+                        <img src="./images/banner-general.jpg" alt="general knowledge banner">
+                    </div>
+                    <div class="quiz__txt">
+                        <p>Can you answer all of these questions?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <p>Developed by <a href="https://github.com/ErickKS">Erick Kuwahara</a></p>
+            </div>
+        </footer>
+    </section>
+
+    <section id="quiz">
+        <div class="container">
+            <div class="quiz__tittle">
+                <h3 id="tittle">tittle</h3>
+                <button onclick="backToMenu()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
+            <div class="quiz__game">
+                <div class="quiz__questions">
+                    <h4 id="question">question</h4>
+                </div>
+
+                <div class="quiz__alternative">
+                    <div>
+                        <div class="question__single">
+                            <span class="checkmark">A</span>
+                            <input type="radio" id="firstAnswer" class="answers" name="answers">
+                            <label id="a_text" for="firstAnswer">alternative 01</label>
+                        </div>
+                        <div class="question__single">
+                            <span class="checkmark">B</span>
+                            <input type="radio" id="secondAnswer" class="answers" name="answers">
+                            <label id="b_text" for="secondAnswer">alternative 02</label>
+                        </div>
+                        <div class="question__single">
+                            <span class="checkmark">C</span>
+                            <input type="radio" id="thirdAnswer" class="answers" name="answers">
+                            <label id="c_text" for="thirdAnswer">alternative 03</label>
+                        </div>
+                        <div class="question__single">
+                            <span class="checkmark">D</span>
+                            <input type="radio" id="fourthAnswer" class="answers" name="answers">
+                            <label id="d_text" for="fourthAnswer">alternative 04</label>
+                        </div>
+                    </div>
+                    <button id="submitQuestion">Next</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quizResultFruit">
+        <div class="container">
+            <div class="box__result">
+                <h2>Congratulations!</h2>
+                <h3>You're a <span id="fruitResult"></span></h3>
+                <button onclick="backToMenu()">Menu</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="quizResult">
+        <div class="container">
+            <div class="box__result">
+                <h2 id="tittleResult">Congratulations!</h2>
+                <h3>You answered correctly at <span id="result"></span> questions</h3>
+                <button onclick="backToMenu()">Menu</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
