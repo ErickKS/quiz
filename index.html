@@ -29,7 +29,7 @@
                 <form method="post" id="register">
                     <input type="text" id="registerInput" name="nickname" placeholder="Nickname*" autofocus
                         autocomplete="off">
-                    <input type="submit" id="btnStart" value="Start">
+                    <input type="submit" id="btnStart" value="Start" translate="no">
                 </form>
 
                 <p>Developed by <a href="https://github.com/ErickKS">Erick Kuwahara</a></p>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="navigation">
                         <button onclick="exit()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
-                        <button onclick="exit()">Sair</button>
+                        <button onclick="exit()">Log Out</button>
                     </div>
                 </div>
             </nav>
@@ -123,7 +123,7 @@
                 <div class="quiz__alternative">
                     <div>
                         <div class="question__single">
-                            <span class="checkmark">A</span>
+                            <span class="checkmark" translate="no">A</span>
                             <input type="radio" id="firstAnswer" class="answers" name="answers">
                             <label id="a_text" for="firstAnswer">alternative 01</label>
                         </div>
@@ -154,7 +154,7 @@
             <div class="box__result">
                 <h2>Congratulations!</h2>
                 <h3>You're a <span id="fruitResult"></span></h3>
-                <button onclick="backToMenu()">Menu</button>
+                <button onclick="backToMenu()" translate="no">Menu</button>
             </div>
         </div>
     </section>
@@ -164,7 +164,7 @@
             <div class="box__result">
                 <h2 id="tittleResult">Congratulations!</h2>
                 <h3>You answered correctly at <span id="result"></span> questions</h3>
-                <button onclick="backToMenu()">Menu</button>
+                <button onclick="backToMenu()" translate="no">Menu</button>
             </div>
         </div>
     </section>
