@@ -531,7 +531,14 @@ function startSession() {
 
 // REGISTER
 
-registerForm.addEventListener('submit', (event) => {
+registerInput.addEventListener('keypress', (event) => {
+    if(event.key === 'Enter') {
+        event.preventDefault();
+        registerForm.click();
+    }
+});
+
+registerForm.addEventListener('click', (event) => {
     event.preventDefault();
 
     if (registerInput.value === "") {
