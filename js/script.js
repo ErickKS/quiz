@@ -281,6 +281,7 @@ function showQuiz() {
 function backToMenu() {
     currentQuestion = 0;
     scoreQuiz = 0;
+    submitQuestion.style.pointerEvents = "initial";
     quizSection.style.display = "none";
     quizResultFruitSection.style.display = "none";
     quizResultSection.style.display = "none";
@@ -375,6 +376,7 @@ submitQuestion.addEventListener('click', () => {
     const answer = getAlternatives();
 
     if (answer) {
+        submitQuestion.style.pointerEvents = "initial";
         if (currentQuizData.tittle === "Fruits") {
             if (answer === fruits[currentQuestion].correct) {
                 scoreQuiz++
@@ -388,6 +390,7 @@ submitQuestion.addEventListener('click', () => {
                     if (quizSection.style.opacity == 0) {
                         setTimeout(() => {
                             loadQuizFruit();
+                            submitQuestion.style.pointerEvents = "initial";
                             quizSection.style.opacity = "1";
                         }, 400);
                     }
@@ -436,6 +439,7 @@ submitQuestion.addEventListener('click', () => {
                     if (quizSection.style.opacity == 0) {
                         setTimeout(() => {
                             loadQuizMath();
+                            submitQuestion.style.pointerEvents = "initial";
                             quizSection.style.opacity = "1";
                         }, 400);
                     }
@@ -457,6 +461,7 @@ submitQuestion.addEventListener('click', () => {
                     if (quizSection.style.opacity == 0) {
                         setTimeout(() => {
                             loadQuizSoccer();
+                            submitQuestion.style.pointerEvents = "initial";
                             quizSection.style.opacity = "1";
                         }, 400);
                     }
@@ -478,6 +483,7 @@ submitQuestion.addEventListener('click', () => {
                     if (quizSection.style.opacity == 0) {
                         setTimeout(() => {
                             loadQuizGeneral();
+                            submitQuestion.style.pointerEvents = "initial";
                             quizSection.style.opacity = "1";
                         }, 400);
                     }
