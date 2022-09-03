@@ -299,9 +299,7 @@ function showResult() {
             setTimeout(() => {
                 quizSection.style.display = "none";
                 quizResultSection.style.display = "flex";
-                if (scoreQuiz <= 1) {
-                    tittleResult.innerText = "Oh noo!";
-                }
+                scoreQuiz <= 1 ? tittleResult.innerText = "Oh noo!" : tittleResult.innerText = "Congratulations!"
                 switch (scoreQuiz) {
                     case 1:
                         result.innerText = "1/5";
@@ -315,8 +313,11 @@ function showResult() {
                     case 4:
                         result.innerText = "4/5";
                         break;
-                    default:
+                    case 5:
                         result.innerText = "5/5";
+                        break;
+                    default:
+                        result.innerText = "0/5";
                         break;
                 }
             }, 400);
