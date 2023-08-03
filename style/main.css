@@ -1,0 +1,548 @@
+:root {
+  font-size: 62.5%;
+
+  --color-primary: hsl(266, 59%, 48%);
+  --color-secondary: hsl(231, 19%, 13%);
+  --color-tertiary: hsl(229, 20%, 17%);
+
+  --font-primary: hsl(0, 0%, 100%);
+  --font-secondary: hsl(0, 0%, 90%);
+
+  --color-extra: hsl(228, 20%, 25%);
+  --font-extra: hsl(229, 9%, 53%);
+
+  --white: hsl(0, 0%, 95%);
+  --black: hsl(0, 0%, 0%);
+  --green: hsl(109, 61%, 43%);
+  --red: hsl(0, 100%, 31%);
+
+  --font-family: "Open Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+  font-size: 1.6rem;
+  background-color: #0e0f0f;
+}
+
+.container {
+  width: min(58rem, 100%);
+  padding-inline: 2rem;
+  margin-inline: auto;
+}
+
+p {
+  font-size: 1.8rem;
+  color: var(--white);
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 500;
+  line-height: 116%;
+  color: var(--white);
+}
+
+h2 {
+  font-size: 4rem;
+  color: var(--font-primary);
+}
+
+h3 {
+  font-size: 3.2rem;
+  color: var(--font-primary);
+}
+
+h4 {
+  font-size: 2.4rem;
+  color: var(--font-primary);
+}
+
+button {
+  font-weight: 700;
+  font-size: 1.4rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* ============================================================================== */
+/* ================================== REGISTER ================================== */
+/* ============================================================================== */
+
+#registerSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+#registerSection .container {
+  width: min(40rem, 100%);
+}
+
+.box__register {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  padding: 2.4rem 1.6rem;
+  border-radius: 1.2rem;
+  border: 0.2rem solid #1e2937;
+  background: rgba(21, 28, 39, 0.4);
+  backdrop-filter: blur(2.5px);
+}
+
+.box__register h1 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.box__register form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.box__register input {
+  width: 100%;
+  height: 5.6rem;
+  padding-inline: 1.6rem;
+  border: 0.2rem solid #1e2937;
+  border-radius: 0.6rem;
+
+  background-color: #151c27;
+  outline: none;
+
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.box__register input.alert,
+.box__register input.alert:focus {
+  border-color: var(--red);
+}
+
+.box__register input.alert:not(:placeholder-shown),
+.box__register input:focus {
+  border-color: #4d556e;
+}
+
+.box__register button {
+  width: 100%;
+  height: 5.6rem;
+  background-color: var(--green);
+  border: 0.2rem solid var(--green);
+  border-radius: 0.6rem;
+  outline: none;
+  cursor: pointer;
+
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+/* ================================================================================ */
+/* ================================== PRE LOADER ================================== */
+/* ================================================================================ */
+
+body {
+  overflow-y: hidden;
+}
+
+#preLoader {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: #0e0f0f;
+  transition: opacity 0.5s;
+}
+
+.arc:before {
+  content: "";
+  display: block;
+
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  border-top: 0.6rem solid var(--color-primary);
+
+  animation: spin 0.5s infinite linear;
+}
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================================================== */
+/* ================================== MAIN ================================== */
+/* ========================================================================== */
+
+main {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================================= */
+/* ==================== NAV ==================== */
+/* ============================================= */
+
+nav {
+  width: 100%;
+  padding-block: 1rem;
+  border-bottom: 0.1rem solid var(--color-extra);
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.navigation button:nth-of-type(1) {
+  background-color: transparent;
+  border: none;
+  font-size: 2.4rem;
+  color: var(--font-primary);
+}
+
+.navigation button:nth-of-type(2) {
+  display: none;
+}
+
+/* ================================================ */
+/* ==================== BANNER ==================== */
+/* ================================================ */
+
+header span {
+  color: var(--color-primary);
+}
+
+.banner {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.banner h2 {
+  margin-bottom: 4.8rem;
+}
+
+/* ================================================== */
+/* ==================== BOX QUIZ ==================== */
+/* ================================================== */
+
+.box__quiz {
+  display: grid;
+  justify-items: center;
+  gap: 4rem;
+  padding-block: 8rem;
+}
+
+.quiz__single {
+  width: min(40rem, 100%);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: 0.3s;
+}
+
+.quiz__single:active {
+  transform: scale(1.05);
+}
+
+.quiz__img img {
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.quiz__txt {
+  position: relative;
+  top: -0.4rem;
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: 0.8rem 1rem;
+  text-align: center;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.quiz__txt p {
+  font-size: 1.8rem;
+}
+
+/* ================================================ */
+/* ==================== FOOTER ==================== */
+/* ================================================ */
+
+footer {
+  border-top: 0.1rem solid var(--color-extra);
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2rem;
+}
+
+footer p,
+footer a {
+  color: var(--font-extra);
+}
+
+/* ========================================================================== */
+/* ================================== QUIZ ================================== */
+/* ========================================================================== */
+
+#quiz {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: opacity 0.4s;
+}
+
+#quiz .container {
+  width: min(40rem, 100%);
+}
+
+.quiz__tittle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-inline: 2rem 1rem;
+  padding-block: 1rem;
+  background: var(--color-primary);
+  background: linear-gradient(140deg, rgba(113, 50, 195, 1) 0%, rgba(67, 12, 139, 1) 55%);
+}
+
+.quiz__tittle h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.quiz__tittle h3,
+.quiz__tittle i {
+  color: var(--font-primary);
+}
+
+.quiz__tittle button {
+  padding-inline: 1rem;
+  background-color: transparent;
+  border: none;
+}
+
+.quiz__tittle i {
+  font-size: 2.4rem;
+}
+
+.quiz__game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-tertiary);
+  padding: 2.4rem;
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
+.quiz__questions {
+  margin-bottom: 2rem;
+}
+
+.quiz__questions h4 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.quiz__alternative {
+  display: flex;
+  flex-direction: column;
+}
+
+.question__single {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  margin-block: 0.5rem;
+}
+
+.quiz__alternative label {
+  width: 100%;
+  position: relative;
+  padding-left: 1.5rem;
+  padding-block: 1.2rem;
+  background-color: var(--color-secondary);
+  font-size: 2rem;
+  user-select: none;
+  cursor: pointer;
+  color: var(--font-extra);
+  transition: 0.2s;
+}
+
+.quiz__alternative input {
+  position: absolute;
+  width: 4rem;
+  height: 5rem;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.quiz__alternative input:checked ~ label {
+  color: var(--font-primary);
+}
+
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 4rem;
+  background-color: var(--color-secondary);
+  font-size: 2.4rem;
+  color: var(--color-primary);
+  transition: 0.2s;
+  border-right: 0.2rem solid var(--color-extra);
+  user-select: none;
+}
+
+.quiz__alternative button {
+  height: 4rem;
+  margin-top: 2rem;
+  background-color: var(--color-primary);
+  border: 0.2rem solid var(--color-primary);
+  border-radius: 0.4rem;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.quiz__alternative button:active {
+  background-color: transparent;
+}
+
+/* ================================================================================= */
+/* ================================== QUIZ RESULT ================================== */
+/* ================================================================================= */
+
+#quizResult {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: opacity 0.4s;
+}
+
+#quizResult .container {
+  width: min(40rem, 100%);
+}
+
+#quizResultFruit {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: opacity 0.4s;
+}
+
+#quizResultFruit .container {
+  width: min(40rem, 100%);
+}
+
+.box__result {
+  text-align: center;
+}
+
+.box__result h2 {
+  margin-bottom: 0.5rem;
+}
+
+.box__result span {
+  color: var(--color-primary);
+}
+
+.box__result button {
+  width: min(18rem, 100%);
+  height: 4rem;
+  margin-top: 3rem;
+  background-color: var(--color-primary);
+  border: 0.2rem solid var(--color-primary);
+  border-radius: 0.4rem;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.box__result button:active {
+  background-color: transparent;
+}
+
+/* ================================================================================ */
+/* ================================== RESPONSIVE ================================== */
+/* ================================================================================ */
+
+@media (min-width: 769px) {
+  .container {
+    width: min(86rem, 100%);
+  }
+
+  .navigation button:nth-of-type(1) {
+    display: none;
+  }
+
+  .navigation button:nth-of-type(2) {
+    display: block;
+    width: 10rem;
+    height: 3.5rem;
+    background-color: var(--color-primary);
+    border: 0.2rem solid var(--color-primary);
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+
+  .navigation button:nth-of-type(2):hover {
+    background-color: transparent;
+  }
+
+  .box__quiz {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quiz__single:active {
+    transform: initial;
+  }
+  .quiz__single:hover {
+    transform: scale(1.05);
+  }
+}
