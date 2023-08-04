@@ -1,9 +1,9 @@
+const body = document.querySelector("body");
+const preLoader = document.getElementById("preLoader");
+
 const registerSection = document.getElementById("registerSection");
 const registerInput = document.getElementById("registerInput");
 const registerButton = document.getElementById("registerButton");
-
-const preLoader = document.getElementById("preLoader");
-const body = document.querySelector("body");
 
 const mainSection = document.getElementById("main");
 const quizSection = document.getElementById("quiz");
@@ -555,7 +555,5 @@ registerButton.addEventListener("click", (event) => {
 });
 
 // EXIT
-
-function exit() {
-  location.reload();
-}
+const exitButton = document.getElementById("exitButton");
+exitButton.addEventListener("click", () => location.reload());

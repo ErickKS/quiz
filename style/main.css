@@ -2,14 +2,9 @@
   font-size: 62.5%;
 
   --color-primary: hsl(266, 59%, 48%);
-  --color-secondary: hsl(231, 19%, 13%);
-  --color-tertiary: hsl(229, 20%, 17%);
-
-  --font-primary: hsl(0, 0%, 100%);
-  --font-secondary: hsl(0, 0%, 90%);
-
-  --color-extra: hsl(228, 20%, 25%);
-  --font-extra: hsl(229, 9%, 53%);
+  --color-secondary: hsl(217, 30%, 12%);
+  --color-tertiary: hsl(214, 29%, 17%);
+  --color-extra: hsl(225, 18%, 37%);
 
   --white: hsl(0, 0%, 95%);
   --black: hsl(0, 0%, 0%);
@@ -45,6 +40,12 @@ p {
   color: var(--white);
 }
 
+a {
+  outline: none;
+  text-decoration: none;
+  color: var(--white);
+}
+
 h1 {
   font-size: 3.2rem;
   font-weight: 500;
@@ -52,25 +53,9 @@ h1 {
   color: var(--white);
 }
 
-h2 {
-  font-size: 4rem;
-  color: var(--font-primary);
-}
-
-h3 {
-  font-size: 3.2rem;
-  color: var(--font-primary);
-}
-
-h4 {
-  font-size: 2.4rem;
-  color: var(--font-primary);
-}
-
 button {
-  font-weight: 700;
-  font-size: 1.4rem;
   cursor: pointer;
+  outline: none;
   user-select: none;
 }
 
@@ -101,9 +86,9 @@ ul {
 
   padding: 2.4rem 1.6rem;
   border-radius: 1.2rem;
-  border: 0.2rem solid #1e2937;
+  border: 0.2rem solid var(--color-tertiary);
   background: rgba(21, 28, 39, 0.4);
-  backdrop-filter: blur(2.5px);
+  backdrop-filter: blur(0.25rem);
 }
 
 .box__register h1 {
@@ -121,10 +106,10 @@ ul {
   width: 100%;
   height: 5.6rem;
   padding-inline: 1.6rem;
-  border: 0.2rem solid #1e2937;
+  border: 0.2rem solid var(--color-tertiary);
   border-radius: 0.6rem;
 
-  background-color: #151c27;
+  background-color: var(--color-secondary);
   outline: none;
 
   font-size: 1.6rem;
@@ -138,7 +123,7 @@ ul {
 
 .box__register input.alert:not(:placeholder-shown),
 .box__register input:focus {
-  border-color: #4d556e;
+  border-color: var(--color-extra);
 }
 
 .box__register button {
@@ -147,8 +132,6 @@ ul {
   background-color: var(--green);
   border: 0.2rem solid var(--green);
   border-radius: 0.6rem;
-  outline: none;
-  cursor: pointer;
 
   font-size: 2rem;
   font-weight: 600;
@@ -186,7 +169,7 @@ body {
   width: 5rem;
   height: 5rem;
   border-radius: 100%;
-  border-top: 0.6rem solid var(--color-primary);
+  border-top: 0.6rem solid var(--white);
 
   animation: spin 0.5s infinite linear;
 }
@@ -207,41 +190,63 @@ main {
   align-items: center;
 }
 
+main .container {
+  width: min(86rem, 100%);
+}
+
 /* ============================================= */
 /* ==================== NAV ==================== */
 /* ============================================= */
 
 nav {
-  width: 100%;
-  padding-block: 1rem;
-  border-bottom: 0.1rem solid var(--color-extra);
+  display: flex;
+  align-items: center;
+
+  height: 7rem;
 }
 
 nav .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
 }
 
-.navigation button:nth-of-type(1) {
-  background-color: transparent;
-  border: none;
-  font-size: 2.4rem;
-  color: var(--font-primary);
+nav h1 {
+  font-size: 4rem;
+  line-height: 100%;
 }
 
-.navigation button:nth-of-type(2) {
+nav button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 4rem;
+  padding-inline: 1.6rem 1.4rem;
+  background-color: var(--color-secondary);
+  border: 0.2rem solid var(--color-tertiary);
+  border-radius: 0.6rem;
+
+  transition: 0.3s ease-in;
+}
+
+nav button:hover,
+nav button:focus {
+  border-color: var(--color-extra);
+  box-shadow: 0 0.2rem 2rem 0 rgba(30, 41, 55, 0.9);
+}
+
+nav button span {
   display: none;
+
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--white);
 }
 
 /* ================================================ */
 /* ==================== BANNER ==================== */
 /* ================================================ */
-
-header span {
-  color: var(--color-primary);
-}
 
 .banner {
   margin-top: 5rem;
@@ -300,19 +305,36 @@ header span {
 /* ================================================ */
 
 footer {
-  border-top: 0.1rem solid var(--color-extra);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 7rem;
 }
 
 footer .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: 2rem;
 }
 
-footer p,
 footer a {
-  color: var(--font-extra);
+  padding: 0.6rem 1rem;
+  margin-inline: auto;
+  background-color: var(--color-secondary);
+  border-radius: 0.6rem;
+  border: 0.2rem solid var(--color-tertiary);
+
+  font-size: 1.6rem;
+  color: var(--white);
+
+  transition: 0.3s ease-in;
+}
+
+footer a:hover,
+footer a:focus {
+  border-color: var(--color-extra);
+  box-shadow: 0 0.2rem 2rem 0 rgba(30, 41, 55, 0.9);
 }
 
 /* ========================================================================== */
@@ -513,26 +535,16 @@ footer a {
     width: min(86rem, 100%);
   }
 
-  .navigation button:nth-of-type(1) {
+  nav button {
+    padding-inline: 2.4rem;
+  }
+
+  nav button svg {
     display: none;
   }
 
-  .navigation button:nth-of-type(2) {
+  nav button span {
     display: block;
-    width: 10rem;
-    height: 3.5rem;
-    background-color: var(--color-primary);
-    border: 0.2rem solid var(--color-primary);
-    border-radius: 1rem;
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s;
-  }
-
-  .navigation button:nth-of-type(2):hover {
-    background-color: transparent;
   }
 
   .box__quiz {
