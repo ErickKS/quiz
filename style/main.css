@@ -211,8 +211,14 @@ nav .container {
   justify-content: space-between;
 }
 
+nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
 nav h1 {
-  font-size: 4rem;
+  font-size: 3.6rem;
   line-height: 100%;
 }
 
