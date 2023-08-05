@@ -47,7 +47,14 @@ a {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 4.8rem;
+  font-weight: 600;
+  line-height: 116%;
+  color: var(--white);
+}
+
+h2 {
+  font-size: 3.6rem;
   font-weight: 500;
   line-height: 116%;
   color: var(--white);
@@ -94,6 +101,9 @@ ul {
 .box__register h1 {
   text-align: center;
   margin-bottom: 1.2rem;
+
+  font-size: 3.2rem;
+  font-weight: 500;
 }
 
 .box__register form {
@@ -217,8 +227,7 @@ nav .logo {
   gap: 0.8rem;
 }
 
-nav h1 {
-  font-size: 3.6rem;
+nav h2 {
   line-height: 100%;
 }
 
@@ -255,12 +264,36 @@ nav button span {
 /* ================================================ */
 
 .banner {
-  margin-top: 5rem;
-  text-align: center;
+  margin-top: 6.4rem;
 }
 
-.banner h2 {
-  margin-bottom: 4.8rem;
+.banner .salulation {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.banner span {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.banner .emoji {
+  position: relative;
+  top: -0.5rem;
+
+  font-size: 2.2rem;
+
+  animation: salutation 5s infinite;
+}
+
+@keyframes salutation {
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 
 /* ================================================== */

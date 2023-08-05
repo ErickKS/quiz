@@ -503,7 +503,7 @@ function startSession() {
   const nickName = registerInput.value;
   const nickPlace = document.getElementById("nickname");
 
-  nickPlace.innerHTML = nickName;
+  nickPlace.innerHTML = "Hi " + nickName;
 
   // CHOOSE QUIZ
 
