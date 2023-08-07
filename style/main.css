@@ -300,12 +300,13 @@ nav button span {
 /* =================================================== */
 
 .highlight {
+  position: relative;
+
   margin-top: 6.4rem;
 }
 
 .highlight .container {
   display: grid;
-  grid-template-columns: 25% 1fr;
 }
 
 .highlight .container > div {
@@ -313,26 +314,29 @@ nav button span {
 }
 
 .highlight__text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 
   padding-inline: 1.6rem;
   background-color: var(--color-secondary);
   border: 0.2rem solid var(--color-tertiary);
+  backdrop-filter: blur(0.25rem);
   border-right: none;
   border-top-left-radius: 1.2rem;
   border-bottom-left-radius: 1.2rem;
 }
 
-.highlight__text span {
+.highlight span:not(.highlight button span) {
+  width: min(17rem, 100%);
+  text-align: center;
+
   font-size: 2.4rem;
   font-weight: 600;
   color: var(--white);
-  text-align: center;
 }
 
 .highlight__quizzes {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -341,9 +345,9 @@ nav button span {
 
   padding-inline: 2.4rem;
   border: 0.2rem solid var(--color-tertiary);
-  border-left: none;
-  border-top-right-radius: 1.2rem;
-  border-bottom-right-radius: 1.2rem;
+  border-radius: 1.2rem;
+  background: rgba(21, 28, 39, 0.4);
+  backdrop-filter: blur(0.2rem);
 }
 
 .highlight__card {
@@ -383,13 +387,20 @@ nav button span {
 
   background-color: transparent;
   border: none;
+  padding: 0.6rem;
 
-  font-size: 1.8rem;
-  font-weight: 500;
   color: var(--color-extra);
 
   transition: 0.3s ease-in;
 }
+
+.card__action span {
+  display: none;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
 .card__action svg {
   stroke: var(--color-extra);
 }
@@ -399,6 +410,29 @@ nav button span {
 }
 .card__action:is(:hover, :focus) {
   stroke: var(--white);
+}
+
+.highlight .bg-blur {
+  display: none;
+
+  position: absolute;
+  inset: 0;
+}
+.highlight .bg-blur svg {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.highlight .bg-blur svg:nth-last-of-type(1) {
+  left: 44%;
+  top: 40%;
+}
+.highlight .bg-blur svg:nth-last-of-type(2) {
+  top: 29%;
+  left: 50%;
+}
+.highlight .bg-blur svg:nth-last-of-type(3) {
+  top: 60%;
+  left: 64%;
 }
 
 /* ================================================== */
@@ -672,6 +706,15 @@ footer a:is(:hover, :focus) {
 /* ================================================================================ */
 /* ================================== RESPONSIVE ================================== */
 /* ================================================================================ */
+@media (min-width: 480px) {
+  .card__action {
+    padding-inline: 0;
+  }
+
+  .card__action span {
+    display: block;
+  }
+}
 
 @media (min-width: 769px) {
   .container {
@@ -688,6 +731,31 @@ footer a:is(:hover, :focus) {
 
   nav button span {
     display: block;
+  }
+
+  .highlight .container {
+    grid-template-columns: 25% 1fr;
+  }
+
+  .highlight .bg-blur {
+    display: block;
+  }
+
+  .highlight__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .highlight__quizzes {
+    border-left: none;
+    border-radius: initial;
+    border-top-right-radius: 1.2rem;
+    border-bottom-right-radius: 1.2rem;
+  }
+
+  .highlight__quizzes > span {
+    display: none;
   }
 
   .box__quiz {
