@@ -245,8 +245,7 @@ nav button {
   transition: 0.3s ease-in;
 }
 
-nav button:hover,
-nav button:focus {
+nav button:is(:hover, :focus) {
   border-color: var(--color-extra);
   box-shadow: 0 0.2rem 2rem 0 rgba(30, 41, 55, 0.9);
 }
@@ -294,6 +293,112 @@ nav button span {
   100% {
     transform: rotate(0);
   }
+}
+
+/* =================================================== */
+/* ==================== HIGHLIGHT ==================== */
+/* =================================================== */
+
+.highlight {
+  margin-top: 6.4rem;
+}
+
+.highlight .container {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+}
+
+.highlight .container > div {
+  padding-block: 3.2rem;
+}
+
+.highlight__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-inline: 1.6rem;
+  background-color: var(--color-secondary);
+  border: 0.2rem solid var(--color-tertiary);
+  border-right: none;
+  border-top-left-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
+}
+
+.highlight__text span {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+}
+
+.highlight__quizzes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+
+  padding-inline: 2.4rem;
+  border: 0.2rem solid var(--color-tertiary);
+  border-left: none;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}
+
+.highlight__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 1.8rem 1.6rem;
+
+  border: 0.2rem solid var(--color-secondary);
+  border-radius: 0.6rem;
+  transition: 0.3s ease-in;
+}
+
+.highlight__card:is(:hover, :focus-within) {
+  border-color: var(--color-extra);
+  box-shadow: 0 0.2rem 2rem 0 rgba(30, 41, 55, 0.9);
+}
+
+.card__title {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.card__title span {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.card__action {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  background-color: transparent;
+  border: none;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-extra);
+
+  transition: 0.3s ease-in;
+}
+.card__action svg {
+  stroke: var(--color-extra);
+}
+
+.card__action:is(:hover, :focus) {
+  color: var(--white);
+}
+.card__action:is(:hover, :focus) {
+  stroke: var(--white);
 }
 
 /* ================================================== */
@@ -370,8 +475,7 @@ footer a {
   transition: 0.3s ease-in;
 }
 
-footer a:hover,
-footer a:focus {
+footer a:is(:hover, :focus) {
   border-color: var(--color-extra);
   box-shadow: 0 0.2rem 2rem 0 rgba(30, 41, 55, 0.9);
 }
