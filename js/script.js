@@ -550,7 +550,8 @@ registerButton.addEventListener("click", (event) => {
   if (registerInput.value === "") {
     registerInput.classList.add("alert");
   } else {
-    startSession();
+    alert("Application being rebuilt");
+    // startSession();
   }
 });
 
