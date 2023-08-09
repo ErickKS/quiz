@@ -23,7 +23,7 @@ const a_text = document.getElementById("a_text");
 const b_text = document.getElementById("b_text");
 const c_text = document.getElementById("c_text");
 const d_text = document.getElementById("d_text");
-const submitQuestion = document.getElementById("submitQuestion");
+const nextQuestion = document.getElementById("nextQuestion");
 
 const fruits = [
   {
@@ -281,7 +281,7 @@ function showQuiz() {
 function backToMenu() {
   currentQuestion = 0;
   scoreQuiz = 0;
-  submitQuestion.style.pointerEvents = "initial";
+  nextQuestion.style.pointerEvents = "initial";
   quizSection.style.display = "none";
   quizResultFruitSection.style.display = "none";
   quizResultSection.style.display = "none";
@@ -372,11 +372,11 @@ function loadQuizGeneral() {
   replaceTextQuiz();
 }
 
-submitQuestion.addEventListener("click", () => {
+nextQuestion.addEventListener("click", () => {
   const answer = getAlternatives();
 
   if (answer) {
-    submitQuestion.style.pointerEvents = "initial";
+    nextQuestion.style.pointerEvents = "initial";
     if (currentQuizData.tittle === "Fruits") {
       if (answer === fruits[currentQuestion].correct) {
         scoreQuiz++;
@@ -390,7 +390,7 @@ submitQuestion.addEventListener("click", () => {
           if (quizSection.style.opacity == 0) {
             setTimeout(() => {
               loadQuizFruit();
-              submitQuestion.style.pointerEvents = "initial";
+              nextQuestion.style.pointerEvents = "initial";
               quizSection.style.opacity = "1";
             }, 400);
           }
@@ -439,7 +439,7 @@ submitQuestion.addEventListener("click", () => {
           if (quizSection.style.opacity == 0) {
             setTimeout(() => {
               loadQuizMath();
-              submitQuestion.style.pointerEvents = "initial";
+              nextQuestion.style.pointerEvents = "initial";
               quizSection.style.opacity = "1";
             }, 400);
           }
@@ -461,7 +461,7 @@ submitQuestion.addEventListener("click", () => {
           if (quizSection.style.opacity == 0) {
             setTimeout(() => {
               loadQuizSoccer();
-              submitQuestion.style.pointerEvents = "initial";
+              nextQuestion.style.pointerEvents = "initial";
               quizSection.style.opacity = "1";
             }, 400);
           }
@@ -483,7 +483,7 @@ submitQuestion.addEventListener("click", () => {
           if (quizSection.style.opacity == 0) {
             setTimeout(() => {
               loadQuizGeneral();
-              submitQuestion.style.pointerEvents = "initial";
+              nextQuestion.style.pointerEvents = "initial";
               quizSection.style.opacity = "1";
             }, 400);
           }
@@ -550,8 +550,8 @@ registerButton.addEventListener("click", (event) => {
   if (registerInput.value === "") {
     registerInput.classList.add("alert");
   } else {
-    alert("Application being rebuilt");
-    // startSession();
+    // alert("Application being rebuilt");
+    startSession();
   }
 });
 

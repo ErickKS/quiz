@@ -60,6 +60,13 @@ h2 {
   color: var(--white);
 }
 
+h3 {
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 116%;
+  color: var(--white);
+}
+
 button {
   cursor: pointer;
   outline: none;
@@ -148,6 +155,9 @@ ul {
   color: #fff;
 
   transition: all 0.3s;
+}
+.box__register button:is(:hover, :focus) {
+  opacity: 0.8;
 }
 
 /* ================================================================================ */
@@ -538,120 +548,125 @@ footer a:is(:hover, :focus) {
   width: min(40rem, 100%);
 }
 
-.quiz__tittle {
+.quiz__wrapper {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  padding: 2.4rem 1.6rem;
+  border-radius: 1.2rem;
+  border: 0.2rem solid var(--color-tertiary);
+  background: rgba(21, 28, 39, 0.4);
+  backdrop-filter: blur(0.25rem);
+}
+
+.quiz__header {
+  display: flex;
   justify-content: space-between;
-  padding-inline: 2rem 1rem;
-  padding-block: 1rem;
-  background: var(--color-primary);
-  background: linear-gradient(140deg, rgba(113, 50, 195, 1) 0%, rgba(67, 12, 139, 1) 55%);
+  align-items: center;
 }
 
-.quiz__tittle h3 {
-  text-transform: uppercase;
-  font-weight: 400;
+.quiz__header span {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--white);
+}
+.quiz__header > span span:nth-of-type(2) {
+  color: var(--color-extra);
 }
 
-.quiz__tittle h3,
-.quiz__tittle i {
-  color: var(--font-primary);
-}
-
-.quiz__tittle button {
-  padding-inline: 1rem;
+.quiz__header button {
   background-color: transparent;
   border: none;
 }
-
-.quiz__tittle i {
-  font-size: 2.4rem;
+.quiz__header button svg {
+  color: var(--color-extra);
+  transition: 0.3s ease-in;
+}
+.quiz__header button:is(:hover, :focus) svg {
+  color: var(--white);
 }
 
-.quiz__game {
+.quizz__question {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: var(--color-tertiary);
-  padding: 2.4rem;
-  border-bottom-left-radius: 0.8rem;
-  border-bottom-right-radius: 0.8rem;
+  gap: 0.8rem;
 }
 
-.quiz__questions {
-  margin-bottom: 2rem;
+.quizz__question p {
+  opacity: 0.7;
 }
 
-.quiz__questions h4 {
-  font-weight: 400;
-  font-size: 2rem;
-}
-
-.quiz__alternative {
+.quizz__options {
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
 }
 
-.question__single {
-  position: relative;
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  margin-block: 0.5rem;
-}
+.option__single label {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 
-.quiz__alternative label {
   width: 100%;
-  position: relative;
-  padding-left: 1.5rem;
-  padding-block: 1.2rem;
-  background-color: var(--color-secondary);
-  font-size: 2rem;
-  user-select: none;
+  height: 5.6rem;
+  padding-inline: 1.6rem;
+  border: 0.2rem solid var(--color-tertiary);
+  border-radius: 0.6rem;
+  outline: none;
   cursor: pointer;
-  color: var(--font-extra);
-  transition: 0.2s;
+
+  font-size: 1.6rem;
+  color: var(--white);
+
+  transition: 0.2s ease-in;
+}
+.option__single label:has(input:checked) {
+  border-color: var(--green);
+}
+.option__single label:is(:hover, :focus) {
+  border-color: var(--color-extra);
 }
 
-.quiz__alternative input {
-  position: absolute;
-  width: 4rem;
-  height: 5rem;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.quiz__alternative input:checked ~ label {
-  color: var(--font-primary);
-}
-
-.checkmark {
+.option__single label span {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 4rem;
+
+  width: 3.2rem;
+  height: 3.2rem;
   background-color: var(--color-secondary);
-  font-size: 2.4rem;
-  color: var(--color-primary);
-  transition: 0.2s;
-  border-right: 0.2rem solid var(--color-extra);
-  user-select: none;
+  border-radius: 0.6rem;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  transition: 0.3s ease-in;
+}
+.option__single label:has(input:checked) span {
+  color: var(--green);
 }
 
-.quiz__alternative button {
-  height: 4rem;
-  margin-top: 2rem;
-  background-color: var(--color-primary);
-  border: 0.2rem solid var(--color-primary);
-  border-radius: 0.4rem;
+.option__single input {
+  appearance: none;
+  visibility: hidden;
+}
+
+.quizz__action button {
+  width: 100%;
+  height: 4.8rem;
+  background-color: var(--green);
+  border: 0.2rem solid var(--green);
+  border-radius: 0.6rem;
+
+  font-size: 2rem;
+  font-weight: 500;
   color: #fff;
-  font-size: 1.6rem;
-  font-weight: 600;
+
   transition: all 0.3s;
 }
-
-.quiz__alternative button:active {
-  background-color: transparent;
+.quizz__action button:is(:hover, :focus) {
+  opacity: 0.8;
 }
 
 /* ================================================================================= */

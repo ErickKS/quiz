@@ -102,7 +102,7 @@
                 <span>Cinema</span>
               </div>
 
-              <button id="" class="card__action">
+              <button id="quizFruit" class="card__action">
                 <span>Start now</span>
 
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -297,41 +297,72 @@
 
     <section id="quiz">
       <div class="container">
-        <div class="quiz__tittle">
-          <h3 id="tittle">tittle</h3>
-          <button onclick="backToMenu()">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </button>
-        </div>
-        <div class="quiz__game">
-          <div class="quiz__questions">
-            <h4 id="question">question</h4>
+        <div class="quiz__wrapper">
+          <div class="quiz__header">
+            <span>Step <span id="currentStep"></span> <span>of 5</span></span>
+
+            <button id="backToMenu" title="Exit">
+              <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18 6.5L6 18.5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6 6.5L18 18.5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
 
-          <div class="quiz__alternative">
-            <div>
-              <div class="question__single">
-                <span class="checkmark" translate="no">A</span>
-                <input type="radio" id="firstAnswer" class="answers" name="answers" />
-                <label id="a_text" for="firstAnswer">alternative 01</label>
-              </div>
-              <div class="question__single">
-                <span class="checkmark">B</span>
-                <input type="radio" id="secondAnswer" class="answers" name="answers" />
-                <label id="b_text" for="secondAnswer">alternative 02</label>
-              </div>
-              <div class="question__single">
-                <span class="checkmark">C</span>
-                <input type="radio" id="thirdAnswer" class="answers" name="answers" />
-                <label id="c_text" for="thirdAnswer">alternative 03</label>
-              </div>
-              <div class="question__single">
-                <span class="checkmark">D</span>
-                <input type="radio" id="fourthAnswer" class="answers" name="answers" />
-                <label id="d_text" for="fourthAnswer">alternative 04</label>
-              </div>
+          <div class="quizz__question">
+            <h3 id="question"></h3>
+
+            <p>Select the correct option.</p>
+          </div>
+
+          <form class="quizz__options">
+            <div class="option__single">
+              <label for="option1" id="a_text" tabindex="0">
+                <span>A</span>
+
+                <input type="radio" name="options" id="option1" />
+              </label>
             </div>
-            <button id="submitQuestion">Next</button>
+
+            <div class="option__single">
+              <label for="option2" id="b_text" tabindex="0">
+                <span>B</span>
+
+                <input type="radio" name="options" id="option2" />
+              </label>
+            </div>
+
+            <div class="option__single">
+              <label for="option3" id="c_text" tabindex="0">
+                <span>C</span>
+
+                <input type="radio" name="options" id="option3" />
+              </label>
+            </div>
+
+            <div class="option__single">
+              <label for="option4" id="d_text" tabindex="0">
+                <span>D</span>
+
+                <input type="radio" name="options" id="option4" />
+              </label>
+            </div>
+          </form>
+
+          <div class="quizz__action">
+            <button id="nextQuestion">Next</button>
           </div>
         </div>
       </div>
