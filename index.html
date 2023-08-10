@@ -368,22 +368,41 @@
       </div>
     </section>
 
-    <section id="quizResultFruit">
+    <section id="result">
       <div class="container">
-        <div class="box__result">
-          <h2>Congratulations!</h2>
-          <h3>You're a <span id="fruitResult"></span></h3>
-          <button onclick="backToMenu()" translate="no">Menu</button>
-        </div>
-      </div>
-    </section>
+        <div class="result__wrapper">
+          <div class="result__message">
+            <h3 id="result-message"></h3>
 
-    <section id="quizResult">
-      <div class="container">
-        <div class="box__result">
-          <h2 id="tittleResult">Congratulations!</h2>
-          <h3>You answered correctly at <span id="result"></span> questions</h3>
-          <button onclick="backToMenu()" translate="no">Menu</button>
+            <div class="result__progress">
+              <div class="progress">
+                <svg
+                  viewBox="0 0 100 100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                  data-value="60"
+                >
+                  <circle r="45" cx="50" cy="50" />
+                  <path
+                    class="meter"
+                    d="M5,50a45,45 0 1,0 90,0a45,45 0 1,0 -90,0"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dashoffset="282.78302001953125"
+                    stroke-dasharray="282.78302001953125"
+                  />
+                  <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="20"></text>
+                </svg>
+              </div>
+              <p>Your answered <span id="answerResult"></span> out of 5 questions</p>
+            </div>
+          </div>
+
+          <div class="result__actions">
+            <button id="repeatButton">Repeat</button>
+
+            <button id="backToMenuButton">Exit</button>
+          </div>
         </div>
       </div>
     </section>

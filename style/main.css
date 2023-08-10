@@ -673,57 +673,111 @@ footer a:is(:hover, :focus) {
 /* ================================== QUIZ RESULT ================================== */
 /* ================================================================================= */
 
-#quizResult {
+#result {
   display: none;
   justify-content: center;
   align-items: center;
+
   height: 100%;
   transition: opacity 0.4s;
 }
 
-#quizResult .container {
+#result .container {
   width: min(40rem, 100%);
 }
+.result__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 
-#quizResultFruit {
-  display: none;
-  justify-content: center;
+  padding: 2.4rem 1.6rem;
+  border-radius: 1.2rem;
+  border: 0.2rem solid var(--color-tertiary);
+  background: rgba(21, 28, 39, 0.4);
+  backdrop-filter: blur(0.25rem);
+}
+
+.result__message {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.result__progress {
+  display: flex;
+  gap: 2.4rem;
   align-items: center;
-  height: 100%;
-  transition: opacity 0.4s;
 }
 
-#quizResultFruit .container {
-  width: min(40rem, 100%);
+.progress svg {
+  display: inline-flex;
+  vertical-align: bottom;
+  width: 12rem;
+  height: 12rem;
 }
 
-.box__result {
-  text-align: center;
+.progress circle {
+  stroke: var(--color-secondary);
+  stroke-width: 0.5rem;
+  stroke-dasharray: 0;
+  fill: none;
 }
 
-.box__result h2 {
-  margin-bottom: 0.5rem;
+.progress .meter {
+  stroke-width: 0.6rem;
+  stroke: #43b12b;
+  fill: none;
+  transition: stroke-dashoffset 1s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  transform-origin: center center;
+  transform: rotate(-90deg) scaleX(-1);
 }
 
-.box__result span {
-  color: var(--color-primary);
-}
-
-.box__result button {
-  width: min(18rem, 100%);
-  height: 4rem;
-  margin-top: 3rem;
-  background-color: var(--color-primary);
-  border: 0.2rem solid var(--color-primary);
-  border-radius: 0.4rem;
-  color: #fff;
-  font-size: 1.6rem;
+.progress text {
+  fill: var(--white);
   font-weight: 600;
+  font-size: 2rem;
+}
+
+.result__progress p,
+.result__progress span {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.result__actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.result__actions button {
+  width: 100%;
+  height: 4.8rem;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+
   transition: all 0.3s;
 }
 
-.box__result button:active {
-  background-color: transparent;
+.result__actions #repeatButton {
+  background-color: var(--color-secondary);
+  border: 0.2rem solid transparent;
+  border-radius: 0.6rem;
+}
+.result__actions #repeatButton:is(:hover, :focus) {
+  border-color: var(--color-extra);
+}
+
+.result__actions #backToMenuButton {
+  background-color: #43b12b;
+  border: 0.2rem solid #43b12b;
+  border-radius: 0.6rem;
+}
+.result__actions #backToMenuButton:is(:hover, :focus) {
+  opacity: 0.8;
 }
 
 /* ================================================================================ */
