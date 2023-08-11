@@ -102,7 +102,7 @@
                 <span>Cinema</span>
               </div>
 
-              <button id="quizFruit" class="card__action">
+              <button id="quizCinema" class="card__action">
                 <span>Start now</span>
 
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -329,40 +329,43 @@
 
           <form class="quizz__options">
             <div class="option__single">
-              <label for="option1" id="a_text" tabindex="0">
+              <label for="a_option" id="a_label" tabindex="0">
                 <span>A</span>
-
-                <input type="radio" name="options" id="option1" />
+                <p></p>
+                <input type="radio" name="options" id="a_option" />
               </label>
             </div>
 
             <div class="option__single">
-              <label for="option2" id="b_text" tabindex="0">
+              <label for="b_option" id="b_label" tabindex="0">
                 <span>B</span>
+                <p></p>
 
-                <input type="radio" name="options" id="option2" />
+                <input type="radio" name="options" id="b_option" />
               </label>
             </div>
 
             <div class="option__single">
-              <label for="option3" id="c_text" tabindex="0">
+              <label for="c_option" id="c_label" tabindex="0">
                 <span>C</span>
+                <p></p>
 
-                <input type="radio" name="options" id="option3" />
+                <input type="radio" name="options" id="c_option" />
               </label>
             </div>
 
             <div class="option__single">
-              <label for="option4" id="d_text" tabindex="0">
+              <label for="d_option" id="d_label" tabindex="0">
                 <span>D</span>
+                <p></p>
 
-                <input type="radio" name="options" id="option4" />
+                <input type="radio" name="options" id="d_option" />
               </label>
             </div>
           </form>
 
           <div class="quizz__action">
-            <button id="nextQuestion">Next</button>
+            <button id="nextQuestion" disabled>Next</button>
           </div>
         </div>
       </div>
@@ -372,7 +375,7 @@
       <div class="container">
         <div class="result__wrapper">
           <div class="result__message">
-            <h3 id="result-message"></h3>
+            <h3 id="resultScore"></h3>
 
             <div class="result__progress">
               <div class="progress">
@@ -408,6 +411,8 @@
     </section>
 
     <!-- JS -->
-    <script src="./js/script.js"></script>
+    <script src="./js/mock.js" type="module"></script>
+    <script src="./js/quiz.js" type="module"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

@@ -664,9 +664,13 @@ footer a:is(:hover, :focus) {
   color: #fff;
 
   transition: all 0.3s;
+  cursor: not-allowed;
 }
-.quizz__action button:is(:hover, :focus) {
+.quizz__action button:not(:disabled):is(:hover, :focus) {
   opacity: 0.8;
+}
+.quizz__action button:disabled {
+  opacity: 0.5;
 }
 
 /* ================================================================================= */
