@@ -11,7 +11,6 @@ const quizMusic = document.getElementById("quizMusic");
 const quizGeography = document.getElementById("quizGeography");
 
 const quizSection = document.getElementById("quiz");
-const quizResultSection = document.getElementById("quizResult");
 
 const question = document.getElementById("question");
 const options = document.querySelectorAll("input[type=radio]");
@@ -79,17 +78,6 @@ function replaceTextQuiz() {
   d_label.firstElementChild.nextElementSibling.textContent = currentQuizData.d_option;
 }
 
-function backToMenu() {
-  currentQuestion = 0;
-  scoreQuiz = 0;
-
-  quizSection.style.display = "none";
-  quizResultFruitSection.style.display = "none";
-  quizResultSection.style.display = "none";
-
-  loadSession();
-}
-
 function disableNextQuestionButton() {
   nextQuestion.setAttribute("disabled", true);
   nextQuestion.style.cursor = "not-allowed";
@@ -142,11 +130,12 @@ quizCinema.addEventListener("click", () => {
 });
 
 // ========== QUIZ RESULT
+const quizResultSection = document.getElementById("result");
 const resultMessage = document.getElementById("resultMessage");
 const resultScore = document.getElementById("resultScore");
 
 const repeatButton = document.getElementById("repeatButton");
-const backToMenuButton = document.getElementById("backToMenuButton");
+const backToMenuButton = document.querySelectorAll(".backToMenuButton");
 
 const meters = document.querySelectorAll("svg[data-value] .meter");
 
@@ -160,4 +149,28 @@ meters.forEach((path) => {
 
   path.style.strokeDashoffset = Math.max(0, to);
   path.nextElementSibling.textContent = `${value / 20}/5`;
+});
+
+// BACK TO MENU
+backToMenuButton.forEach((button) => {
+  button.addEventListener("click", () => {
+    currentQuestion = 0;
+    scoreQuiz = 0;
+
+    quizSection.style.display = "none";
+    quizResultSection.style.display = "none";
+
+    setTimeout(() => {
+      body.style.overflowY = "visible";
+      preLoader.style.display = "flex";
+      registerSection.style.display = "none";
+
+      if (preLoader.style.opacity == 0) {
+        setTimeout(() => {
+          preLoader.style.display = "none";
+          mainSection.style.display = "block";
+        }, 1000);
+      }
+    }, 100);
+  });
 });

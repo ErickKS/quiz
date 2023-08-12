@@ -18,7 +18,7 @@ function loadSession() {
       setTimeout(() => {
         preLoader.style.display = "none";
         mainSection.style.display = "block";
-      }, 1500);
+      }, 1000);
     }
   }, 100);
 }
