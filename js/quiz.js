@@ -13,6 +13,7 @@ const quizGeography = document.getElementById("quizGeography");
 const quizSection = document.getElementById("quiz");
 
 const question = document.getElementById("question");
+const questionNumber = document.getElementById("currentStep");
 const options = document.querySelectorAll("input[type=radio]");
 const a_label = document.getElementById("a_label");
 const b_label = document.getElementById("b_label");
@@ -29,6 +30,8 @@ function showQuiz() {
   quizSection.style.display = "flex";
   quizSection.style.opacity = 1;
   quizSection.style.visibility = "visible";
+
+  questionNumber.innerText = currentQuestion + 1;
 
   options.forEach((selected) => {
     selected.addEventListener("change", () => {
