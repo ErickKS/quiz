@@ -21,6 +21,18 @@ const c_label = document.getElementById("c_label");
 const d_label = document.getElementById("d_label");
 const nextQuestion = document.getElementById("nextQuestion");
 
+// ========== QUIZ RESULT
+const quizResultSection = document.getElementById("result");
+const resultMessage = document.getElementById("resultMessage");
+const resultScore = document.getElementById("resultScore");
+
+const backToMenuButton = document.querySelectorAll(".backToMenuButton");
+const repeatButton = document.getElementById("repeatButton");
+
+const meters = document.querySelectorAll("svg[data-value] .meter");
+
+// ==================== MAIN PROGRAM
+
 let quiz = null;
 let currentQuizData = null;
 let currentQuestion = 0;
@@ -40,8 +52,24 @@ function showQuiz() {
     });
   });
 }
+function showQuizResult() {
+  loadQuizResult();
+
+  if (scoreQuiz < 2) {
+    resultMessage.textContent = "Oh noo!";
+  } else if (scoreQuiz > 3) {
+    resultMessage.textContent = "Well done!";
+  } else {
+    resultMessage.textContent = "Great!";
+  }
+
+  resultScore.textContent = scoreQuiz;
+}
 
 function loadQuiz() {
+  disableNextQuestionButton();
+  deselectAlternatives();
+
   setTimeout(() => {
     quizSection.style.display = "flex";
     body.style.overflowY = "hidden";
@@ -53,6 +81,26 @@ function loadQuiz() {
         mainSection.style.display = "none";
         quizSection.style.display = "flex";
       }, 1000);
+    }
+  }, 100);
+}
+function loadQuizResult() {
+  setTimeout(() => {
+    quizSection.style.opacity = 0;
+    quizSection.style.visibility = "hidden";
+
+    if (quizSection.style.opacity === "0") {
+      setTimeout(() => {
+        quizSection.style.display = "none";
+        quizResultSection.style.display = "flex";
+
+        if (quizResultSection.style.display === "flex") {
+          setTimeout(() => {
+            quizResultSection.style.opacity = 1;
+            quizResultSection.style.visibility = "visible";
+          }, 400);
+        }
+      }, 500);
     }
   }, 100);
 }
@@ -104,25 +152,28 @@ nextQuestion.addEventListener("click", () => {
     scoreQuiz++;
   }
 
-  currentQuestion++;
+  if (currentQuestion === 2) {
+    showQuizResult();
+  } else {
+    currentQuestion++;
 
-  transitionQuizAnimation();
-  disableNextQuestionButton();
-  deselectAlternatives();
+    transitionQuizAnimation();
+    disableNextQuestionButton();
+    deselectAlternatives();
 
-  switch (currentQuizData.theme) {
-    case "cinema":
-      setTimeout(() => {
-        loadQuizCinema();
-      }, 500);
-      break;
+    switch (currentQuizData.theme) {
+      case "cinema":
+        setTimeout(() => {
+          loadQuizCinema();
+        }, 500);
+        break;
+    }
   }
 });
 
 function loadQuizCinema() {
   showQuiz();
 
-  console.log(currentQuestion, scoreQuiz);
   quiz = cinema;
   currentQuizData = quiz[currentQuestion];
   replaceTextQuiz();
@@ -132,17 +183,7 @@ quizCinema.addEventListener("click", () => {
   loadQuizCinema();
 });
 
-// ========== QUIZ RESULT
-const quizResultSection = document.getElementById("result");
-const resultMessage = document.getElementById("resultMessage");
-const resultScore = document.getElementById("resultScore");
-
-const repeatButton = document.getElementById("repeatButton");
-const backToMenuButton = document.querySelectorAll(".backToMenuButton");
-
-const meters = document.querySelectorAll("svg[data-value] .meter");
-
-// SCORE ANIMATION
+// ========== SCORE ANIMATION
 meters.forEach((path) => {
   let length = path.getTotalLength();
   let value = parseInt(path.parentNode.getAttribute("data-value"));
@@ -154,7 +195,23 @@ meters.forEach((path) => {
   path.nextElementSibling.textContent = `${value / 20}/5`;
 });
 
-// BACK TO MENU
+// ========== REPEAT QUIZ
+repeatButton.addEventListener("click", () => {
+  scoreQuiz = 0;
+  currentQuestion = 0;
+
+  loadQuiz();
+
+  switch (currentQuizData.theme) {
+    case "cinema":
+      setTimeout(() => {
+        loadQuizCinema();
+      }, 500);
+      break;
+  }
+});
+
+// ========== BACK TO MENU
 backToMenuButton.forEach((button) => {
   button.addEventListener("click", () => {
     currentQuestion = 0;

@@ -683,7 +683,10 @@ footer a:is(:hover, :focus) {
   align-items: center;
 
   height: 100%;
-  transition: opacity 0.4s;
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.4s;
 }
 
 #result .container {
@@ -775,12 +778,12 @@ footer a:is(:hover, :focus) {
   border-color: var(--color-extra);
 }
 
-.result__actions #backToMenuButton {
+.result__actions .backToMenuButton {
   background-color: #43b12b;
   border: 0.2rem solid #43b12b;
   border-radius: 0.6rem;
 }
-.result__actions #backToMenuButton:is(:hover, :focus) {
+.result__actions .backToMenuButton:is(:hover, :focus) {
   opacity: 0.8;
 }
 
