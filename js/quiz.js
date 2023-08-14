@@ -29,8 +29,6 @@ const resultScore = document.getElementById("resultScore");
 const backToMenuButton = document.querySelectorAll(".backToMenuButton");
 const repeatButton = document.getElementById("repeatButton");
 
-const meters = document.querySelectorAll("svg[data-value] .meter");
-
 // ==================== MAIN PROGRAM
 
 let quiz = null;
@@ -140,6 +138,10 @@ function deselectAlternatives() {
   });
 }
 
+function defaultScoreAnimationProgress() {
+  progress.setAttribute("data-value", 0);
+}
+
 nextQuestion.addEventListener("click", () => {
   let answer = null;
   options.forEach((selected) => {
@@ -150,10 +152,12 @@ nextQuestion.addEventListener("click", () => {
 
   if (answer === quiz[currentQuestion].correctOption) {
     scoreQuiz++;
+    progress.setAttribute("data-value", scoreQuiz * 20);
   }
 
   if (currentQuestion === 2) {
     showQuizResult();
+    scoreAnimation();
   } else {
     currentQuestion++;
 
@@ -184,16 +188,22 @@ quizCinema.addEventListener("click", () => {
 });
 
 // ========== SCORE ANIMATION
-meters.forEach((path) => {
-  let length = path.getTotalLength();
-  let value = parseInt(path.parentNode.getAttribute("data-value"));
-  let to = length * ((100 - value) / 100);
+const meters = document.querySelectorAll("svg[data-value] .meter");
+const progress = document.querySelector("svg[data-value]");
 
-  path.getBoundingClientRect();
+function scoreAnimation() {
+  meters.forEach((path) => {
+    let length = path.getTotalLength();
+    let value = parseInt(path.parentNode.getAttribute("data-value"));
+    console.log(value);
+    let to = length * ((100 - value) / 100);
 
-  path.style.strokeDashoffset = Math.max(0, to);
-  path.nextElementSibling.textContent = `${value / 20}/5`;
-});
+    path.getBoundingClientRect();
+
+    path.style.strokeDashoffset = Math.max(0, to);
+    path.nextElementSibling.textContent = `${value / 20}/5`;
+  });
+}
 
 // ========== REPEAT QUIZ
 repeatButton.addEventListener("click", () => {
@@ -201,6 +211,7 @@ repeatButton.addEventListener("click", () => {
   currentQuestion = 0;
 
   loadQuiz();
+  defaultScoreAnimationProgress();
 
   switch (currentQuizData.theme) {
     case "cinema":
@@ -216,6 +227,8 @@ backToMenuButton.forEach((button) => {
   button.addEventListener("click", () => {
     currentQuestion = 0;
     scoreQuiz = 0;
+
+    defaultScoreAnimationProgress();
 
     quizSection.style.display = "none";
     quizResultSection.style.display = "none";
