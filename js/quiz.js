@@ -70,6 +70,7 @@ function loadQuiz() {
 
   setTimeout(() => {
     quizSection.style.display = "flex";
+    quizResultSection.style.display = "none";
     body.style.overflowY = "hidden";
     preLoader.style.display = "flex";
 

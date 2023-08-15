@@ -670,7 +670,8 @@ footer a:is(:hover, :focus) {
   opacity: 0.8;
 }
 .quizz__action button:disabled {
-  opacity: 0.5;
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 /* ================================================================================= */

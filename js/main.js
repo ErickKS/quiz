@@ -42,7 +42,7 @@ registerInput.addEventListener("keypress", (event) => {
   }
 });
 
-registerButton.addEventListener("click", (event) => {
+registerButton.addEventListener("click", () => {
   if (registerInput.value === "") {
     registerInput.classList.add("alert");
   } else {
