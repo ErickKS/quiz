@@ -152,7 +152,7 @@ nextQuestion.addEventListener("click", () => {
     progress.setAttribute("data-value", scoreQuiz * 20);
   }
 
-  if (currentQuestion === 2) {
+  if (currentQuestion === 4) {
     showQuizResult();
 
     setTimeout(() => {
