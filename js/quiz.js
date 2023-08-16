@@ -139,10 +139,6 @@ function deselectAlternatives() {
   });
 }
 
-function defaultScoreAnimationProgress() {
-  progress.setAttribute("data-value", 0);
-}
-
 nextQuestion.addEventListener("click", () => {
   let answer = null;
   options.forEach((selected) => {
@@ -158,7 +154,10 @@ nextQuestion.addEventListener("click", () => {
 
   if (currentQuestion === 2) {
     showQuizResult();
-    scoreAnimation();
+
+    setTimeout(() => {
+      scoreAnimation();
+    }, 900);
   } else {
     currentQuestion++;
 
@@ -196,13 +195,27 @@ function scoreAnimation() {
   meters.forEach((path) => {
     let length = path.getTotalLength();
     let value = parseInt(path.parentNode.getAttribute("data-value"));
-    console.log(value);
     let to = length * ((100 - value) / 100);
 
     path.getBoundingClientRect();
 
-    path.style.strokeDashoffset = Math.max(0, to);
     path.nextElementSibling.textContent = `${value / 20}/5`;
+    setTimeout(() => {
+      path.style.strokeDashoffset = Math.max(0, to);
+    }, 100);
+  });
+}
+
+function defaultScoreAnimationProgress() {
+  progress.setAttribute("data-value", 0);
+
+  meters.forEach((path) => {
+    let length = path.getTotalLength();
+    let value = parseInt(path.parentNode.getAttribute("data-value"));
+    let to = length * ((100 - value) / 100);
+
+    path.style.strokeDashoffset = Math.max(to, 0);
+    path.nextElementSibling.textContent = "0/5";
   });
 }
 
@@ -212,7 +225,10 @@ repeatButton.addEventListener("click", () => {
   currentQuestion = 0;
 
   loadQuiz();
-  defaultScoreAnimationProgress();
+
+  setTimeout(() => {
+    defaultScoreAnimationProgress();
+  }, 150);
 
   switch (currentQuizData.theme) {
     case "cinema":

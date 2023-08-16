@@ -1,14 +1,13 @@
 :root {
   font-size: 62.5%;
 
-  --color-primary: hsl(266, 59%, 48%);
+  --color-primary: hsl(109, 61%, 43%);
   --color-secondary: hsl(217, 30%, 12%);
   --color-tertiary: hsl(214, 29%, 17%);
   --color-extra: hsl(225, 18%, 37%);
 
   --white: hsl(0, 0%, 95%);
   --black: hsl(0, 0%, 0%);
-  --green: hsl(109, 61%, 43%);
   --red: hsl(0, 100%, 31%);
 
   --font-family: "Open Sans", sans-serif;
@@ -61,7 +60,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2.6rem;
+  font-size: clamp(2.2rem, 5vw, 2.6rem);
   font-weight: 500;
   line-height: 116%;
   color: var(--white);
@@ -75,6 +74,18 @@ button {
 
 ul {
   list-style-type: none;
+}
+
+::-webkit-scrollbar {
+  width: 1.2rem;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 0.4rem;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-tertiary);
+  border-radius: 1.2rem;
 }
 
 /* ============================================================================== */
@@ -91,6 +102,8 @@ ul {
 
 #registerSection .container {
   width: min(40rem, 100%);
+  position: relative;
+  z-index: 2;
 }
 
 .box__register {
@@ -146,8 +159,8 @@ ul {
 .box__register button {
   width: 100%;
   height: 5.6rem;
-  background-color: var(--green);
-  border: 0.2rem solid var(--green);
+  background-color: var(--color-primary);
+  border: 0.2rem solid var(--color-primary);
   border-radius: 0.6rem;
 
   font-size: 2rem;
@@ -158,6 +171,28 @@ ul {
 }
 .box__register button:is(:hover, :focus) {
   opacity: 0.8;
+}
+
+.bg-blur__register {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.bg-blur__register svg {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.bg-blur__register svg:nth-of-type(1) {
+  top: 44%;
+  left: 46%;
+}
+.bg-blur__register svg:nth-of-type(2) {
+  top: 49%;
+  left: 55%;
+}
+.bg-blur__register svg:nth-of-type(3) {
+  top: 69%;
+  left: 53%;
 }
 
 /* ================================================================================ */
@@ -622,7 +657,7 @@ footer a:is(:hover, :focus) {
   transition: 0.2s ease-in;
 }
 .option__single label:has(input:checked) {
-  border-color: var(--green);
+  border-color: var(--color-primary);
 }
 .option__single label:is(:hover, :focus) {
   border-color: var(--color-extra);
@@ -644,7 +679,7 @@ footer a:is(:hover, :focus) {
   transition: 0.3s ease-in;
 }
 .option__single label:has(input:checked) span {
-  color: var(--green);
+  color: var(--color-primary);
 }
 
 .option__single input {
@@ -655,8 +690,8 @@ footer a:is(:hover, :focus) {
 .quizz__action button {
   width: 100%;
   height: 4.8rem;
-  background-color: var(--green);
-  border: 0.2rem solid var(--green);
+  background-color: var(--color-primary);
+  border: 0.2rem solid var(--color-primary);
   border-radius: 0.6rem;
 
   font-size: 2rem;
@@ -711,10 +746,15 @@ footer a:is(:hover, :focus) {
   gap: 2.4rem;
 }
 
+.result__message h3 {
+  text-align: center;
+}
+
 .result__progress {
   display: flex;
-  gap: 2.4rem;
+  flex-direction: column;
   align-items: center;
+  gap: 2.4rem;
 }
 
 .progress svg {
@@ -751,11 +791,13 @@ footer a:is(:hover, :focus) {
   font-size: 1.8rem;
   font-weight: 500;
   color: var(--white);
+  text-align: center;
+  max-width: 25rem;
 }
 
 .result__actions {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1.6rem;
 }
 
@@ -792,6 +834,7 @@ footer a:is(:hover, :focus) {
 /* ================================== RESPONSIVE ================================== */
 /* ================================================================================ */
 @media (min-width: 480px) {
+  /* ========== MAIN ========== */
   .card__action {
     padding-inline: 0;
   }
@@ -800,12 +843,32 @@ footer a:is(:hover, :focus) {
     display: block;
   }
 
+  /* ========== QUIZZES ========== */
   .quizzes__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ========== QUIZ RESULT ========== */
+  .result__message h3 {
+    text-align: start;
+  }
+
+  .result__progress {
+    flex-direction: row;
+  }
+
+  .result__progress p,
+  .result__progress span {
+    text-align: start;
+  }
+
+  .result__actions {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 769px) {
+  /* ========== MAIN ========== */
   .container {
     width: min(86rem, 100%);
   }
@@ -847,6 +910,7 @@ footer a:is(:hover, :focus) {
     display: none;
   }
 
+  /* ========== QUIZZES ========== */
   .quizzes__wrapper {
     grid-template-columns: repeat(3, 1fr);
   }
