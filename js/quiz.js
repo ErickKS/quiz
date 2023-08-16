@@ -30,7 +30,6 @@ const backToMenuButton = document.querySelectorAll(".backToMenuButton");
 const repeatButton = document.getElementById("repeatButton");
 
 // ==================== MAIN PROGRAM
-
 let quiz = null;
 let currentQuizData = null;
 let currentQuestion = 0;
@@ -185,6 +184,19 @@ function loadQuizCinema() {
 quizCinema.addEventListener("click", () => {
   loadQuiz();
   loadQuizCinema();
+});
+
+// ========== QUIZ ACCESSIBILITY
+const optionsWrapper = document.querySelectorAll(".option__single label");
+
+optionsWrapper.forEach((option) => {
+  option.addEventListener("keypress", ({ key }) => {
+    const event = new Event("change", { bubbles: true });
+    if (key === " ") {
+      option.lastElementChild.dispatchEvent(event);
+      option.lastElementChild.checked = true;
+    }
+  });
 });
 
 // ========== SCORE ANIMATION
