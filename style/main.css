@@ -62,7 +62,7 @@ h2 {
 h3 {
   font-size: clamp(2.2rem, 5vw, 2.6rem);
   font-weight: 500;
-  line-height: 116%;
+  line-height: 120%;
   color: var(--white);
 }
 
@@ -580,7 +580,7 @@ footer a:is(:hover, :focus) {
 }
 
 #quiz .container {
-  width: min(40rem, 100%);
+  width: min(45rem, 100%);
 }
 
 .quiz__wrapper {

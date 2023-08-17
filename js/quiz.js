@@ -1,5 +1,5 @@
 // ========== QUIZ MAIN
-import { cinema } from "./mock.js";
+import { cinema, sports, tech, science, math, knowledge, music, geo } from "./mock.js";
 
 const quizCinema = document.getElementById("quizCinema");
 const quizSports = document.getElementById("quizSports");
@@ -8,7 +8,7 @@ const quizScience = document.getElementById("quizScience");
 const quizMath = document.getElementById("quizMath");
 const quizKnowledge = document.getElementById("quizKnowledge");
 const quizMusic = document.getElementById("quizMusic");
-const quizGeography = document.getElementById("quizGeography");
+const quizGeo = document.getElementById("quizGeography");
 
 const quizSection = document.getElementById("quiz");
 
@@ -170,6 +170,41 @@ nextQuestion.addEventListener("click", () => {
           loadQuizCinema();
         }, 500);
         break;
+      case "sports":
+        setTimeout(() => {
+          loadQuizSports();
+        }, 500);
+        break;
+      case "tech":
+        setTimeout(() => {
+          loadQuizTech();
+        }, 500);
+        break;
+      case "science":
+        setTimeout(() => {
+          loadQuizScience();
+        }, 500);
+        break;
+      case "math":
+        setTimeout(() => {
+          loadQuizMath();
+        }, 500);
+        break;
+      case "knowledge":
+        setTimeout(() => {
+          loadQuizKnowledge();
+        }, 500);
+        break;
+      case "music":
+        setTimeout(() => {
+          loadQuizMusic();
+        }, 500);
+        break;
+      case "geo":
+        setTimeout(() => {
+          loadQuizGeo();
+        }, 500);
+        break;
     }
   }
 });
@@ -184,6 +219,90 @@ function loadQuizCinema() {
 quizCinema.addEventListener("click", () => {
   loadQuiz();
   loadQuizCinema();
+});
+
+function loadQuizSports() {
+  showQuiz();
+
+  quiz = sports;
+  currentQuizData = quiz[currentQuestion];
+  replaceTextQuiz();
+}
+quizSports.addEventListener("click", () => {
+  loadQuiz();
+  loadQuizSports();
+});
+
+function loadQuizTech() {
+  showQuiz();
+
+  quiz = tech;
+  currentQuizData = quiz[currentQuestion];
+  replaceTextQuiz();
+}
+quizTech.addEventListener("click", () => {
+  loadQuiz();
+  loadQuizTech();
+});
+
+function loadQuizScience() {
+  showQuiz();
+
+  quiz = science;
+  currentQuizData = quiz[currentQuestion];
+  replaceTextQuiz();
+}
+quizScience.addEventListener("click", () => {
+  loadQuiz();
+  loadQuizScience();
+});
+
+function loadQuizMath() {
+  showQuiz();
+
+  quiz = math;
+  currentQuizData = quiz[currentQuestion];
+  replaceTextQuiz();
+}
+quizMath.addEventListener("click", () => {
+  loadQuiz();
+  loadQuizMath();
+});
+
+function loadQuizKnowledge() {
+  showQuiz();
+
+  quiz = knowledge;
+  currentQuizData = quiz[currentQuestion];
+  replaceTextQuiz();
+}
+quizKnowledge.addEventListener("click", () => {
+  loadQuiz();
+  loadQuizKnowledge();
+});
+
+function loadQuizMusic() {
+  showQuiz();
+
+  quiz = music;
+  currentQuizData = quiz[currentQuestion];
+  replaceTextQuiz();
+}
+quizMusic.addEventListener("click", () => {
+  loadQuiz();
+  loadQuizMusic();
+});
+
+function loadQuizGeo() {
+  showQuiz();
+
+  quiz = geo;
+  currentQuizData = quiz[currentQuestion];
+  replaceTextQuiz();
+}
+quizGeo.addEventListener("click", () => {
+  loadQuiz();
+  loadQuizGeo();
 });
 
 // ========== QUIZ ACCESSIBILITY
@@ -246,6 +365,41 @@ repeatButton.addEventListener("click", () => {
     case "cinema":
       setTimeout(() => {
         loadQuizCinema();
+      }, 500);
+      break;
+    case "sports":
+      setTimeout(() => {
+        loadQuizSports();
+      }, 500);
+      break;
+    case "tech":
+      setTimeout(() => {
+        loadQuizTech();
+      }, 500);
+      break;
+    case "science":
+      setTimeout(() => {
+        loadQuizScience();
+      }, 500);
+      break;
+    case "math":
+      setTimeout(() => {
+        loadQuizMath();
+      }, 500);
+      break;
+    case "knowledge":
+      setTimeout(() => {
+        loadQuizKnowledge();
+      }, 500);
+      break;
+    case "music":
+      setTimeout(() => {
+        loadQuizMusic();
+      }, 500);
+      break;
+    case "geo":
+      setTimeout(() => {
+        loadQuizGeo();
       }, 500);
       break;
   }
