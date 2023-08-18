@@ -177,6 +177,7 @@ ul {
   position: absolute;
   inset: 0;
   z-index: 1;
+  overflow: hidden;
 }
 .bg-blur__register svg {
   position: absolute;
